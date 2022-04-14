@@ -1,3 +1,9 @@
+import myRequest from "./services/homeService.js";
 window.onload = function () {
-  document.getElementsByTagName("main").innerHTML = "<h1>HHHH</h1>";
+  document.getElementsByTagName("main").innerHTML = "";
+  async function getData() {
+    const a = await myRequest();
+    return a;
+  }
+  getData().then((a) => console.log(a));
 };

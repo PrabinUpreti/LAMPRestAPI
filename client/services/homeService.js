@@ -7,10 +7,9 @@ const myRequest = () => {
         resolve(this.responseText);
       }
     };
-    xmlhttp.open("GET", "https://api.quran.com/api/v4/chapters", true);
+    xmlhttp.open("GET", "http://localhost/fsd/server/api/post/read.php", true);
     xmlhttp.send();
   });
 };
 
 export default myRequest;
-fetch;

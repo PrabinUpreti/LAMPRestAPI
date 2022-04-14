@@ -27,7 +27,6 @@ class Post{
         
         $stmt->execute();
 
-        echo var_dump($stmt->fetch(PDO::FETCH_OBJ)) .'<br>';
         
         return $stmt;
 

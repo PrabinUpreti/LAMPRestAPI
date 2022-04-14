@@ -10,33 +10,30 @@
 
     $post = new Post($db);
     $result = $post->read();
-    // echo var_dump($result) .'<br>';
     $num = $result->rowCount();
-    // echo var_dump($num) .'<br>';
 
     if ($num > 0){
         $posts_arr = array();
         $posts_arr['data'] = array();
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)){
-            // extract($row);
-            // echo var_dump($row);
-            // $post_item = array(
-            //     'sn' => $sn,
-            //     'name' => $name,
-            //     'address' => $address,
-            //     'dob' => $dob,
-            //     'pet' => $pet,
-            //     'actor' => $actor,
-            //     'actress' => $actress,
-            //     'image' => html_entity_decode($image),
-            //     'description' => $description
-            // );
+            extract($row);
+            $post_item = array(
+                'sn' => $sn,
+                'name' => $name,
+                'address' => $address,
+                'dob' => $dob,
+                'pet' => $pet,
+                'actor' => $actor,
+                'actress' => $actress,
+                'image' => html_entity_decode($image),
+                'description' => $description
+            );
 
-            // array_push($posts_arr['data'], $post_item);
+            array_push($posts_arr['data'], $post_item);
         } 
         
-    // echo json_encode($posts_arr);
+    echo json_encode($posts_arr);
     } else{
         echo json_encode(array('message'=>'No data founds!'));
     }
